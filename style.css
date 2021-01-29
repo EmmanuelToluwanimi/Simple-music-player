@@ -1,0 +1,63 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    width: 100vw;
+}
+section{
+    margin-top: 4.7%;
+}
+.a-body{
+    background: linear-gradient(90deg, #e5e5e9 100%, #0b0b0e 50%);
+    color: black;
+    height: 90.2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.img-body{
+    width: 20vw;
+    background-color: #fff;
+}
+.m_title{
+    font-size: 26px;
+    font-weight: 500;
+}
+#inp_range{
+    width: 99%;
+    height: 1px;
+}
+input[type="range"]{
+    height: 2px;
+    padding: 0px;
+}
+.m-bar{
+    background-color: #0b0b0e;
+}
+#playbtn{
+    font-size: 28px;
+}
+#prevbtn, #nextbtn{
+    font-size: 24px;
+}
+.brs{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.bar-holder{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.bar-img{
+    width: 20%;
+    height: 100%;
+    background-color: #fff;
+}

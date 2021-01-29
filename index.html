@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Music player</title>
+</head>
+
+<body>
+    <header>
+        <nav class="bg-dark text-white p-1 text-center">
+            <h1><i class="fas fa-music"></i> Music Player</h1>
+        </nav>
+    </header>
+
+    <section>
+        <div class="row no-gutters">
+            <div class="col-9 a-body">
+                <div class="img-body border mx-auto shadow rounded p-4 m-5">
+                    <img src="assets/images/pngkey.com-dj-vector-png-2978105.png" alt="music image" width="100%" >
+                </div>
+
+                <div class="text-center music-info mb-2">
+                    <div class="m_title"><span class="shadow-sm p-1">Music Title</span></div>
+                    <div class="m_artist mt-1"><span class="shadow-sm p-1">Music Artist</span></div>
+                </div>
+
+                <div class="m-bar">
+                    <div class="m-range">
+                        <input type="range" id="inp_range" value="0" class="form-control mx-auto shadow-none">
+                    </div>
+                    <div class="brs">
+                        <div class="bar-holder">
+                            <div class="bar-img">
+                                <img src="assets/images/pngkey.com-dj-vector-png-2978105.png" alt="" width="100%">
+                            </div>
+                            <span class="border">jdjdjdhh</span>
+                        </div>
+                        <div class="btngrps text-center">
+                            <button class="btn rounded-circle text-white m-1" id="reptbtn"><i class="fas fa-redo-alt text-muted"></i></button>
+                            <button class="btn rounded-circle text-white m-1" id="prevbtn"><i class="fas fa-step-backward"></i></button>
+                            <button class="btn rounded-circle text-white m-1" id="playbtn"><i class="fas fa-play"></i></button>
+                            <button class="btn rounded-circle text-white m-1" id="nextbtn"><i class="fas fa-step-forward"></i></button>
+                            <button class="btn rounded-circle text-white m-1" id="shufbtn"><i class="fas fa-random text-muted"></i></button>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <button class="btn text-white rounded-circle"><i class="fas fa-volume-up"></i></button>
+                            <input type="range" id="inp_range" value="50" min="1" max="100" class="form-control mx-auto shadow-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3"></div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
