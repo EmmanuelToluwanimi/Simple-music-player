@@ -61,3 +61,6 @@ input[type="range"]{
     height: 100%;
     background-color: #fff;
 }
+.smalltext{
+    font-size: 14px;
+}
