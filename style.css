@@ -1,18 +1,21 @@
-body{
+body {
     padding: 0px;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
-header{
+
+header {
     position: fixed;
     top: 0px;
     z-index: 1;
     width: 100vw;
 }
-section{
+
+section {
     margin-top: 4.7%;
 }
-.a-body{
+
+.a-body {
     background: linear-gradient(90deg, #e5e5e9 100%, #0b0b0e 50%);
     color: black;
     height: 90.2vh;
@@ -20,47 +23,124 @@ section{
     flex-direction: column;
     justify-content: space-between;
 }
-.img-body{
+
+.img-body {
     width: 20vw;
     background-color: #fff;
 }
-.m_title{
+
+.m_title {
     font-size: 26px;
     font-weight: 500;
 }
-#inp_range{
+
+#inp_range {
     width: 99%;
     height: 1px;
 }
-input[type="range"]{
+
+input[type="range"] {
     height: 2px;
     padding: 0px;
 }
-.m-bar{
+
+.m-bar {
     background-color: #0b0b0e;
 }
-#playbtn{
+
+#playbtn {
     font-size: 28px;
 }
-#prevbtn, #nextbtn{
+
+#prevbtn, #nextbtn {
     font-size: 24px;
 }
-.brs{
+
+.brs {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.bar-holder{
-    width: 25%;
+
+.bar-holder {
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
 }
-.bar-img{
-    width: 20%;
+
+.bar-img {
+    width: 22%;
     height: 100%;
     background-color: #fff;
 }
-.smalltext{
+
+.smalltext {
     font-size: 14px;
 }
+
+.bartitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card {
+    border: 0px;
+}
+
+.sdnh {
+    /* background-color: #2f89fc; */
+    color: white;
+}
+
+.list-group-item {
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}
+.volgrp{
+    display: flex;
+    align-items: center;
+}
+.sdnbtn{
+    height: 95%;
+    /* padding: 12px; */
+}
+
+@media only screen and (max-width: 700px) {
+    .img-body {
+        width: 60vw;
+        background-color: #fff;
+    }
+    .m_title {
+        font-size: 26px;
+        font-weight: 500;
+    }
+    .a-body{
+        margin-top: 11%;
+        position: relative;
+    }
+    .brs {
+        display: block;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #inp_volume{
+        width: 40%;
+    }
+    .volgrp{
+        display: none;
+        align-items: center;
+        justify-content: left;
+    }
+    .card{
+        position: absolute;
+        margin-top: 11%;
+    }
+    
+}
+
+@media only screen and (max-width: 902px) {}
+
+@media only screen and (max-width: 1050px) {}
