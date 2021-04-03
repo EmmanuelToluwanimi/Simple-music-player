@@ -1,0 +1,81 @@
+{
+    "artistname": "Burna Boy",
+    "albumname": "Twice As Tall",
+    "songs": [
+        {
+            "songid": "1",
+            "songname": "Level Up (feat. Youssou N'Dour)",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna_Boy_Level_Up_Twice_As_Tall_ft_Youssou_N_Dour.mp3"
+        },
+        {
+            "songid": "2",
+            "songname": "Alarm Clock",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Alarm-Clock.mp3"
+        },
+        {
+            "songid": "3",
+            "songname": "Way Too Big",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Way-Too-Big.mp3"
+        },
+        {
+            "songid": "4",
+            "songname": "Bebo",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Bebo.mp3"
+        },
+        {
+            "songid": "5",
+            "songname": "Wonderful",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Wonderful.mp3"
+        },
+        {
+            "songid": "6",
+            "songname": "Onyeka (Baby)",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Onyeka-Baby.mp3"
+        },
+        {
+            "songid": "7",
+            "songname": "Naughty By Nature",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna_Boy_Naughty_by_Nature_ft_Naughty_by_Nature.mp3"
+        },
+        {
+            "songid": "8",
+            "songname": "Comma",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Comma.mp3"
+        },
+        {
+            "songid": "9",
+            "songname": "No Fit Vex",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-No-fit-Vex.mp3"
+        },
+        {
+            "songid": "10",
+            "songname": "23",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-23.mp3"
+        },
+        {
+            "songid": "11",
+            "songname": "Time Flies (Feat. Sauti Sol)",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Time-Flies-ft-Sauti-Sol.mp3"
+        },
+        {
+            "songid": "12",
+            "songname": "Monsters You Made (Feat. Chris Martin)",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-–-Monsters-You-Made-ft.-Chris-Martin.mp3"
+        },
+        {
+            "songid": "13",
+            "songname": "Wetin Dey Sup",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Wetin-Dey-Sup.mp3"
+        },
+        {
+            "songid": "14",
+            "songname": "Real Life (Feat. Stormzy)",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Real-Life-ft-Stormzy.mp3"
+        },
+        {
+            "songid": "15",
+            "songname": "Bank On It",
+            "src": "./assets/Twice As Tall - Burna Boy/Burna-Boy-Bank-on-It.mp3"
+        }
+    ]
+}
