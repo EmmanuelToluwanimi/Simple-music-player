@@ -109,6 +109,15 @@ input[type="range"] {
 }
 
 @media only screen and (max-width: 700px) {
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav .btn{
+        height: 80%;
+        display: block !important;
+    }
     .img-body {
         width: 60vw;
         background-color: #fff;
@@ -120,6 +129,7 @@ input[type="range"] {
     .a-body{
         margin-top: 11%;
         position: relative;
+        height: 91vh;
     }
     .brs {
         display: block;
@@ -137,6 +147,7 @@ input[type="range"] {
     .card{
         position: absolute;
         margin-top: 11%;
+        display: none;
     }
     
 }
