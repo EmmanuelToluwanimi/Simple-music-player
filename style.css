@@ -5,20 +5,20 @@ body {
 }
 
 header {
-    position: fixed;
+    /* position: fixed; */
     top: 0px;
     z-index: 1;
     width: 100vw;
 }
 
-section {
+/* section {
     margin-top: 4.7%;
-}
+} */
 
 .a-body {
     background: linear-gradient(90deg, #e5e5e9 100%, #0b0b0e 50%);
     color: black;
-    height: 90.2vh;
+    height: 89.6vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -127,9 +127,9 @@ input[type="range"] {
         font-weight: 500;
     }
     .a-body{
-        margin-top: 11%;
-        position: relative;
-        height: 91vh;
+        /* margin-top: 11%; */
+        /* position: relative; */
+        height: 90.5vh;
     }
     .brs {
         display: block;
@@ -152,6 +152,6 @@ input[type="range"] {
     
 }
 
-@media only screen and (max-width: 902px) {}
+@media only screen and (min-width: 750px) {}
 
 @media only screen and (max-width: 1050px) {}
