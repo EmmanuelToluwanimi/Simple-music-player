@@ -29,6 +29,10 @@ function fetchsongs() {
             songlist = data.songs;
             console.log(songlist.length);
         })
+        .catch((err) => {
+            console.log(err);
+            alert("Oops, problem retrieving songs")
+        })
 }
 fetchsongs();
 
@@ -61,6 +65,7 @@ function play() {
         }
     } else {
         console.log("Song cannnot be played");
+        alert("Song cannnot be played")
     }
     togplaybtn();
 }
@@ -112,6 +117,29 @@ prevsongbtn.onclick = function () {
     titlename.innerHTML = songlist[song_id].songname;
 }
 
+// function to change volume
+volume_range.addEventListener('input', volume_change)
+function volume_change() {
+    track.volume = this.value / 100;
+    console.log(track.volume);
+}
+
+// function to mute and unmute volume
+volbtn.addEventListener('click', volumebtn)
+function volumebtn() {
+    mutevol();
+}
+
+function mutevol() {
+    voltoggle.classList.toggle('fa-volume-mute');
+    voltoggle.classList.toggle('fa-volume-up');
+    volume_range.value = 0;
+
+}
+
+
+
+
 
 
 
@@ -130,27 +158,6 @@ function shufflesong() {
 function shuffletog() {
     shuffletoggle.classList.toggle("text-muted")
 }
-
-// function to mute and unmute volume
-volbtn.addEventListener('click', volumebtn)
-function volumebtn() {
-    mutevol();
-
-}
-
-function mutevol() {
-    voltoggle.classList.toggle('fa-volume-mute');
-    voltoggle.classList.toggle('fa-volume-up');
-    volume_range.value = 0;
-
-}
-
-// function to change volume
-volume_range.addEventListener('input', volume_change)
-function volume_change() {
-    console.log(this.value);
-}
-
 
 
 
