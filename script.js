@@ -11,9 +11,12 @@ let volume_range = document.querySelector("#inp_volume");
 let artistname = document.querySelector('#artist-name');
 let titlename = document.querySelector('#title-name');
 let albumimage = document.querySelectorAll('.albumimg');
+let song_num = document.querySelector('#song_num');
+let bartitle = document.querySelector('.bartitle')
 let track = document.createElement('audio');
 
 let songplaying = false;
+let song_id = 0;
 let songlist;
 
 // function to fetch songs
@@ -24,6 +27,7 @@ function fetchsongs() {
             // console.log(data);
             album_details(data);
             songlist = data.songs;
+            console.log(songlist.length);
         })
 }
 fetchsongs();
@@ -32,7 +36,6 @@ fetchsongs();
 function album_details(album) {
     console.log(album);
     artistname.innerHTML = album.artistname;
-    titlename.innerHTML = album.songs[0].songname;
     albumimage.forEach(e => {
         e.src = album.albumimage;
     });
@@ -42,10 +45,13 @@ function album_details(album) {
 playbtn.addEventListener('click', play)
 function play() {
     // console.log(songlist[0]);
-    track.src = songlist[0].src;
-    
+    track.src = songlist[song_id].src;
+
     if (track.canPlayType) {
         // console.log("true");
+        song_num.innerHTML = songlist[song_id].songid;
+        bartitle.innerHTML = songlist[song_id].songname;
+        titlename.innerHTML = songlist[song_id].songname;
         if (songplaying == false) {
             console.log(songplaying);
             plays();
@@ -53,7 +59,7 @@ function play() {
             console.log(songplaying);
             pauses();
         }
-    }else{
+    } else {
         console.log("Song cannnot be played");
     }
     togplaybtn();
@@ -74,13 +80,53 @@ function togplaybtn() {
     playtoggle.classList.toggle("fa-pause");
 }
 
+// function to next song
+nextsongbtn.onclick = function () {
+    song_id += 1;
+    if (song_id > (songlist.length - 1)) {
+        song_id = 0;
+        track.src = songlist[song_id].src;
+    } else {
+        track.src = songlist[song_id].src;
+    }
+    console.log(song_id);
+    track.play();
+    song_num.innerHTML = songlist[song_id].songid;
+    bartitle.innerHTML = songlist[song_id].songname;
+    titlename.innerHTML = songlist[song_id].songname;
+}
+
+// function to previous song
+prevsongbtn.onclick = function () {
+    song_id -= 1;
+    if (song_id < 0) {
+        song_id = (songlist.length - 1);
+        track.src = songlist[song_id].src;
+    } else {
+        track.src = songlist[song_id].src;
+    }
+    console.log(song_id);
+    track.play();
+    song_num.innerHTML = songlist[song_id].songid;
+    bartitle.innerHTML = songlist[song_id].songname;
+    titlename.innerHTML = songlist[song_id].songname;
+}
+
+
+
+
+
+
+
+
+
 // function on shuffle button
 shufflebtn.addEventListener("click", shufflesong);
 function shufflesong() {
     shuffletog();
 }
 
-// finction to toggle shaffle on and off icon
+// finction to toggle shuffle on and off icon
 function shuffletog() {
     shuffletoggle.classList.toggle("text-muted")
 }
@@ -95,7 +141,6 @@ function volumebtn() {
 function mutevol() {
     voltoggle.classList.toggle('fa-volume-mute');
     voltoggle.classList.toggle('fa-volume-up');
-
     volume_range.value = 0;
 
 }
