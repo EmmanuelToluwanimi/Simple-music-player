@@ -1,6 +1,7 @@
 {
     "artistname": "Burna Boy",
     "albumname": "Twice As Tall",
+    "albumimage": "./assets/images/default.png",
     "songs": [
         {
             "songid": "1",
