@@ -12,7 +12,8 @@ let artistname = document.querySelector('#artist-name');
 let titlename = document.querySelector('#title-name');
 let albumimage = document.querySelectorAll('.albumimg');
 let song_num = document.querySelector('#song_num');
-let bartitle = document.querySelector('.bartitle')
+let bartitle = document.querySelector('.bartitle');
+let volume_percent = document.querySelector('.volume_percent');
 let track = document.createElement('audio');
 
 let songplaying = false;
@@ -27,7 +28,7 @@ function fetchsongs() {
             // console.log(data);
             album_details(data);
             songlist = data.songs;
-            console.log(songlist.length);
+            // console.log(songlist.length);
         })
         .catch((err) => {
             console.log(err);
@@ -121,20 +122,37 @@ prevsongbtn.onclick = function () {
 volume_range.addEventListener('input', volume_change)
 function volume_change() {
     track.volume = this.value / 100;
+    if (track.volume == 0) {
+        voltoggle.classList.remove("fa-volume-up");
+        voltoggle.classList.add('fa-volume-mute');
+    } else {
+        voltoggle.classList.add("fa-volume-up");
+        voltoggle.classList.remove('fa-volume-mute');
+    }
+    volume_percent.innerHTML = this.value;
     console.log(track.volume);
 }
 
 // function to mute and unmute volume
 volbtn.addEventListener('click', volumebtn)
 function volumebtn() {
+
+    if (track.volume == 0) {
+        track.volume = 1;
+        volume_range.value = 100
+    } else {
+        track.volume = 0;
+        volume_range.value = 0;
+    }
+    // volume_change()
     mutevol();
+    console.log(track.volume);
+    // stuck here
 }
 
 function mutevol() {
     voltoggle.classList.toggle('fa-volume-mute');
     voltoggle.classList.toggle('fa-volume-up');
-    volume_range.value = 0;
-
 }
 
 

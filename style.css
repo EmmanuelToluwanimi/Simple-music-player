@@ -108,6 +108,11 @@ input[type="range"] {
     /* padding: 12px; */
 }
 
+.volume_percent{
+    padding: 3px;
+    background-color: #363636;
+}
+
 @media only screen and (max-width: 700px) {
     nav{
         display: flex;
