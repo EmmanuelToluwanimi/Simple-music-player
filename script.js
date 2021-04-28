@@ -14,6 +14,7 @@ let albumimage = document.querySelectorAll('.albumimg');
 let song_num = document.querySelector('#song_num');
 let bartitle = document.querySelector('.bartitle');
 let volume_percent = document.querySelector('.volume_percent');
+let surfsong = document.querySelector('#inp_range');
 let track = document.createElement('audio');
 
 let songplaying = false;
@@ -114,7 +115,7 @@ prevsongbtn.onclick = function () {
         track.src = songlist[song_id].src;
     }
     // console.log(song_id);
-    
+
     track.play();
 
     song_num.innerHTML = songlist[song_id].songid;
@@ -156,7 +157,10 @@ function mutevol() {
     voltoggle.classList.toggle('fa-volume-up');
 }
 
-
+// function to surf through songs
+surfsong.oninput = function () {
+    track.currentTime = (this.value / 100) * track.duration;
+}
 
 
 
