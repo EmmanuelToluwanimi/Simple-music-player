@@ -95,8 +95,10 @@ nextsongbtn.onclick = function () {
     } else {
         track.src = songlist[song_id].src;
     }
-    console.log(song_id);
+    // console.log(song_id);
+
     track.play();
+
     song_num.innerHTML = songlist[song_id].songid;
     bartitle.innerHTML = songlist[song_id].songname;
     titlename.innerHTML = songlist[song_id].songname;
@@ -111,8 +113,10 @@ prevsongbtn.onclick = function () {
     } else {
         track.src = songlist[song_id].src;
     }
-    console.log(song_id);
+    // console.log(song_id);
+    
     track.play();
+
     song_num.innerHTML = songlist[song_id].songid;
     bartitle.innerHTML = songlist[song_id].songname;
     titlename.innerHTML = songlist[song_id].songname;
@@ -130,24 +134,21 @@ function volume_change() {
         voltoggle.classList.remove('fa-volume-mute');
     }
     volume_percent.innerHTML = this.value;
-    console.log(track.volume);
+    // console.log(track.volume);
 }
 
 // function to mute and unmute volume
 volbtn.addEventListener('click', volumebtn)
 function volumebtn() {
 
-    if (track.volume == 0) {
-        track.volume = 1;
-        volume_range.value = 100
+    if (track.muted != true) {
+        track.muted = true;
     } else {
-        track.volume = 0;
-        volume_range.value = 0;
+        track.muted = false;
     }
-    // volume_change()
+
     mutevol();
-    console.log(track.volume);
-    // stuck here
+    // console.log(track.muted);
 }
 
 function mutevol() {
