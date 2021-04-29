@@ -28,9 +28,10 @@ function fetchsongs() {
         .then((res) => res.json())
         .then((data) => {
             // console.log(data);
+            
+
             songlist = data.songs;
-            album_details(data);
-            // console.log(songlist.length);
+            album_details(data, songlist);
         })
         .catch((err) => {
             console.log(err);
@@ -40,12 +41,20 @@ function fetchsongs() {
 fetchsongs();
 
 // functions to display album details
-function album_details(album) {
-    console.log(album);
+function album_details(album, songlist) {
+    // console.log(album);
+
     artistname.innerHTML = album.artistname;
+
     albumimage.forEach(e => {
         e.src = album.albumimage;
-    });  
+    });
+
+    song_num.innerHTML = songlist[song_id].songid;
+    bartitle.innerHTML = songlist[song_id].songname;
+    titlename.innerHTML = songlist[song_id].songname;
+
+    track.load();
 
     // bug of state to fix later in pause and play
 }
@@ -53,38 +62,38 @@ function album_details(album) {
 // functions on play button
 playbtn.addEventListener('click', play)
 function play() {
-    // console.log(songlist[0]);
     track.src = songlist[song_id].src;
-
 
     if (track.canPlayType) {
         // console.log("true");
         song_num.innerHTML = songlist[song_id].songid;
         bartitle.innerHTML = songlist[song_id].songname;
         titlename.innerHTML = songlist[song_id].songname;
-        if (songplaying == false) {
+        if (!songplaying) {
             plays();
             console.log(songplaying);
         } else {
             pauses();
             console.log(songplaying);
+            // clearInterval(timer);
         }
     } else {
         console.log("Song cannnot be played");
         alert("Song cannnot be played")
     }
+    console.log(track.currentTime);
 }
 
 function plays() {
-    songplaying = true;
     track.play();
+    songplaying = true;
     playtoggle.classList.remove("fa-play");
     playtoggle.classList.add("fa-pause");
 
 }
 function pauses() {
-    songplaying = false;
     track.pause();
+    songplaying = false;
     playtoggle.classList.add("fa-play");
     playtoggle.classList.remove("fa-pause");
 }
@@ -95,9 +104,32 @@ function togplaybtn() {
     playtoggle.classList.toggle("fa-pause");
 }
 
+function setInt() {
+    timer = setInterval(() => {
+        updateslider();
+    }, 1000);
+}
+setInt();
+
+// function to update song slider
+function updateslider() {
+
+    if (!isNaN(track.duration)) {
+        surfsong.value = (track.currentTime / track.duration) * 100;
+        // console.log(track.currentTime);
+    }
+}
+
+// function to surf through songs
+surfsong.onclick = function () {
+    track.currentTime = (this.value / 100) * track.duration;
+    // console.log(track.duration);
+}
+
 // function to next song
 nextsongbtn.onclick = function () {
     song_id += 1;
+    surfsong.value = 0;
     if (song_id > (songlist.length - 1)) {
         song_id = 0;
         track.src = songlist[song_id].src;
@@ -121,6 +153,7 @@ nextsongbtn.onclick = function () {
 // function to previous song
 prevsongbtn.onclick = function () {
     song_id -= 1;
+    surfsong.value = 0;
     if (song_id < 0) {
         song_id = (songlist.length - 1);
         track.src = songlist[song_id].src;
@@ -175,40 +208,18 @@ function mutevol() {
     voltoggle.classList.toggle('fa-volume-up');
 }
 
-// function to surf through songs
-surfsong.onclick = function () {
-    track.currentTime = (this.value / 100) * track.duration;
-    // console.log(track.duration);
+
+let reptbtn = document.querySelector('#reptbtn');
+reptbtn.onclick = function () {
+    track.pause();
 }
-
-setInterval(() => {
-    updateslider();
-}, 1000);
-// function to update song slider
-function updateslider() {
-    let position = 0;
-    // console.log(track.currentTime);
-    if (!isNaN(track.duration)) {
-        position = track.currentTime * (100 / track.duration);
-        surfsong.value = position;
-        // console.log(track.duration);
-    }
-
-}
-
-
-
-
-
-
-
-
 
 
 // function on shuffle button
 shufflebtn.addEventListener("click", shufflesong);
 function shufflesong() {
     shuffletog();
+    track.play();
 }
 
 // finction to toggle shuffle on and off icon
