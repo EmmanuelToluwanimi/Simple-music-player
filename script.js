@@ -28,7 +28,7 @@ function fetchsongs() {
         .then((res) => res.json())
         .then((data) => {
             // console.log(data);
-            
+
 
             songlist = data.songs;
             album_details(data, songlist);
@@ -55,6 +55,7 @@ function album_details(album, songlist) {
     titlename.innerHTML = songlist[song_id].songname;
 
     track.load();
+    track.autoplay = true;
 
     // bug of state to fix later in pause and play
 }
@@ -118,12 +119,40 @@ function updateslider() {
         surfsong.value = (track.currentTime / track.duration) * 100;
         // console.log(track.currentTime);
     }
+
+    playnextsong();
 }
 
 // function to surf through songs
 surfsong.onclick = function () {
     track.currentTime = (this.value / 100) * track.duration;
     // console.log(track.duration);
+}
+
+// function to play next song
+function playnextsong() {
+    if (track.ended) {
+        song_id += 1;
+        surfsong.value = 0;
+        if (song_id > (songlist.length - 1)) {
+            song_id = 0;
+            track.src = songlist[song_id].src;
+        } else {
+            track.src = songlist[song_id].src;
+        }
+        // console.log(song_id);
+
+        track.play();
+
+        songplaying = true;
+        playtoggle.classList.remove("fa-play");
+        playtoggle.classList.add("fa-pause");
+        console.log(songplaying);
+
+        song_num.innerHTML = songlist[song_id].songid;
+        bartitle.innerHTML = songlist[song_id].songname;
+        titlename.innerHTML = songlist[song_id].songname;
+    }
 }
 
 // function to next song
