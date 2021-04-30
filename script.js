@@ -110,7 +110,7 @@ function togplaybtn() {
 function setInt() {
     if (songplaying) {
         clearInterval(timer);
-        
+
         timer = setInterval(() => {
             updateslider();
             console.log(track.currentTime);
@@ -200,12 +200,13 @@ prevsongbtn.onclick = function () {
     }
     // console.log(song_id);
 
+    songplaying = true;
     track.play();
-    songplaying = false;
-    if (songplaying == false) {
-        playtoggle.classList.remove("fa-play");
-        playtoggle.classList.add("fa-pause");
-    }
+    setInt();
+
+    playtoggle.classList.remove("fa-play");
+    playtoggle.classList.add("fa-pause");
+    console.log(songplaying);
 
     song_num.innerHTML = songlist[song_id].songid;
     bartitle.innerHTML = songlist[song_id].songname;
