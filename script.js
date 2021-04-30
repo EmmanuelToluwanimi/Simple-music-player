@@ -73,9 +73,11 @@ function play() {
         if (!songplaying) {
             plays();
             console.log(songplaying);
+            setInt();
         } else {
             pauses();
             console.log(songplaying);
+            setInt();
             // clearInterval(timer);
         }
     } else {
@@ -106,11 +108,17 @@ function togplaybtn() {
 }
 
 function setInt() {
-    timer = setInterval(() => {
-        updateslider();
-    }, 1000);
+    if (songplaying) {
+        clearInterval(timer);
+        
+        timer = setInterval(() => {
+            updateslider();
+            console.log(track.currentTime);
+        }, 1000);
+    } else {
+        clearInterval(timer);
+    }
 }
-setInt();
 
 // function to update song slider
 function updateslider() {
@@ -167,9 +175,10 @@ nextsongbtn.onclick = function () {
     }
     // console.log(song_id);
 
-    track.play();
-
     songplaying = true;
+    track.play();
+    setInt();
+
     playtoggle.classList.remove("fa-play");
     playtoggle.classList.add("fa-pause");
     console.log(songplaying);
