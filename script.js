@@ -29,13 +29,12 @@ function fetchsongs() {
         .then((data) => {
             // console.log(data);
 
-
             songlist = data.songs;
             album_details(data, songlist);
         })
         .catch((err) => {
             console.log(err);
-            alert("Oops, problem retrieving songs")
+            alert("Oops, problem retrieving songs");
         })
 }
 fetchsongs();
@@ -53,29 +52,33 @@ function album_details(album, songlist) {
     song_num.innerHTML = songlist[song_id].songid;
     bartitle.innerHTML = songlist[song_id].songname;
     titlename.innerHTML = songlist[song_id].songname;
-
-    track.load();
+    
+    track.src = songlist[song_id].src;
     track.autoplay = true;
 
-    // bug of state to fix later in pause and play
 }
 
 // functions on play button
 playbtn.addEventListener('click', play)
 function play() {
-    track.src = songlist[song_id].src;
+    
 
     if (track.canPlayType) {
         // console.log("true");
-        song_num.innerHTML = songlist[song_id].songid;
-        bartitle.innerHTML = songlist[song_id].songname;
-        titlename.innerHTML = songlist[song_id].songname;
+        // song_num.innerHTML = songlist[song_id].songid;
+        // bartitle.innerHTML = songlist[song_id].songname;
+        // titlename.innerHTML = songlist[song_id].songname;
+
         if (!songplaying) {
-            plays();
+            // plays();
+            songplaying = true;
+            track.play();
             console.log(songplaying);
             setInt();
         } else {
-            pauses();
+            // pauses();
+            songplaying = false;
+            track.pause();
             console.log(songplaying);
             setInt();
             // clearInterval(timer);
@@ -87,24 +90,25 @@ function play() {
     console.log(track.currentTime);
 }
 
+// function to toggle play and pause icon
+function togplaybtn() {
+    playtoggle.classList.toggle("fa-play");
+    playtoggle.classList.toggle("fa-pause");
+}
+
 function plays() {
-    track.play();
+    track.load();
     songplaying = true;
     playtoggle.classList.remove("fa-play");
     playtoggle.classList.add("fa-pause");
 
 }
+
 function pauses() {
     track.pause();
     songplaying = false;
     playtoggle.classList.add("fa-play");
     playtoggle.classList.remove("fa-pause");
-}
-
-// function to toggle play and pause icon
-function togplaybtn() {
-    playtoggle.classList.toggle("fa-play");
-    playtoggle.classList.toggle("fa-pause");
 }
 
 function setInt() {
@@ -265,6 +269,5 @@ function shufflesong() {
 function shuffletog() {
     shuffletoggle.classList.toggle("text-muted")
 }
-
 
 
