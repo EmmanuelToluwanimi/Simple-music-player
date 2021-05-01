@@ -27,8 +27,6 @@ function fetchsongs() {
     fetch('./albumsongs.json')
         .then((res) => res.json())
         .then((data) => {
-            // console.log(data);
-
             songlist = data.songs;
             album_details(data, songlist);
         })
@@ -41,10 +39,8 @@ fetchsongs();
 
 // functions to display album details
 function album_details(album, songlist) {
-    // console.log(album);
-
     artistname.innerHTML = album.artistname;
-
+    
     albumimage.forEach(e => {
         e.src = album.albumimage;
     });
@@ -52,7 +48,7 @@ function album_details(album, songlist) {
     song_num.innerHTML = songlist[song_id].songid;
     bartitle.innerHTML = songlist[song_id].songname;
     titlename.innerHTML = songlist[song_id].songname;
-    
+
     track.src = songlist[song_id].src;
     track.autoplay = true;
 
@@ -61,33 +57,23 @@ function album_details(album, songlist) {
 // functions on play button
 playbtn.addEventListener('click', play)
 function play() {
-    
 
     if (track.canPlayType) {
-        // console.log("true");
-        // song_num.innerHTML = songlist[song_id].songid;
-        // bartitle.innerHTML = songlist[song_id].songname;
-        // titlename.innerHTML = songlist[song_id].songname;
 
         if (!songplaying) {
-            // plays();
-            songplaying = true;
-            track.play();
-            console.log(songplaying);
+            plays();
             setInt();
+            console.log(songplaying);
         } else {
-            // pauses();
-            songplaying = false;
-            track.pause();
-            console.log(songplaying);
+            pauses();
             setInt();
-            // clearInterval(timer);
+            console.log(songplaying);
         }
     } else {
         console.log("Song cannnot be played");
         alert("Song cannnot be played")
     }
-    console.log(track.currentTime);
+    // console.log(track.currentTime);
 }
 
 // function to toggle play and pause icon
@@ -97,11 +83,10 @@ function togplaybtn() {
 }
 
 function plays() {
-    track.load();
+    track.play();
     songplaying = true;
     playtoggle.classList.remove("fa-play");
     playtoggle.classList.add("fa-pause");
-
 }
 
 function pauses() {
@@ -251,23 +236,18 @@ function mutevol() {
     voltoggle.classList.toggle('fa-volume-up');
 }
 
-
-let reptbtn = document.querySelector('#reptbtn');
-reptbtn.onclick = function () {
-    track.pause();
-}
-
+// let reptbtn = document.querySelector('#reptbtn');
+// reptbtn.onclick = function () {
+//     track.pause();
+// }
 
 // function on shuffle button
 shufflebtn.addEventListener("click", shufflesong);
 function shufflesong() {
     shuffletog();
-    track.play();
 }
 
 // finction to toggle shuffle on and off icon
 function shuffletog() {
     shuffletoggle.classList.toggle("text-muted")
 }
-
-
